@@ -11,6 +11,7 @@ function dbconnect(){
         return $conn;
     }catch(PDOException){
         echo 'erreur';
+        return false;
     }
 }
 ?>

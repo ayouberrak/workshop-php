@@ -1,5 +1,5 @@
 <?php
-require_once '../model/usermodel.php';
+require_once __DIR__ . '/../model/usermodel.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $firstname = htmlspecialchars(trim($_POST['firstname']));
@@ -23,7 +23,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 }
 
-require_once '../views/signup.php';
+require_once __DIR__ . '/../views/signup.php';
+
 
 
 
