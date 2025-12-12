@@ -10,8 +10,9 @@
     <form action="" method="POST">
         <label for="username">username</label><br>
         <input type="text" name="username"><br>
-        <label for="pass">username</label><br>
+        <label for="pass">password</label><br>
         <input type="text" name="pass"><br>
+        <button type="submit">se conecter</button>
     </form>
 </body>
 </html>
