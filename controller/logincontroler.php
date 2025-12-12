@@ -7,13 +7,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $row = verify($username,$pass);
     if($row){
         session_start();
-        $_SESSION['name'] = $row['nom_user'];
-        echo $_SESSION['name'];
+        $_SESSION['id'] = $row['id_user'];
 
         if($row['type']=='medecin'){
-            header('Location: ../views/medecindashbord.php');
+            header('Location: ../controller/rendervouscontrolleur.php');
+            exit;
         }else{
-            header('Location: ../views/userdashbord.php');
+            header('Location: ../controller/rendervouscontrolleur.php');
         }
 
 

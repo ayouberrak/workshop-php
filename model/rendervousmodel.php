@@ -15,5 +15,28 @@ function getrendevous($id){
     $res->execute([
         'id'=>$id
     ]);
-    return $res->fetch(PDO::FETCH_ASSOC);
+    return $res->fetchAll(PDO::FETCH_ASSOC);
+}
+function getUserType($typeUser){
+    $conn = dbconnect();
+    $requet ="SELECT id_user , CONCAT(nom_user,' ',prenom_user) AS fullnameuser FROM users WHERE type = :typeuser";
+    $res = $conn->prepare($requet);
+    $res->execute([
+        'typeuser'=>$typeUser
+    ]);
+    return $res->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+function insertRendervous($id_P,$id_M,$date_rvd,$status){
+    $conn = dbconnect();
+    $requet="INSERT INTO render_vous(id_patient,id_medecin,date_rvd,status)
+            VALUES(:id_P,:id_M,:date_rvd,:status)";
+    $ress = $conn->prepare($requet);
+    return $ress->execute([
+        'id_P'=>$id_P,
+        'id_M'=>$id_M,
+        'date_rvd'=>$date_rvd,
+        'status'=>$status
+    ]);
 }
